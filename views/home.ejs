@@ -23,7 +23,7 @@
     <div class="title">
         ĐIỀU KHIỂN THIẾT BỊ
         <!-- <div style="width: 66.5%;"></div> -->
-        <a href="/history" class="form">Lịch Sử Đo</a>
+        <a href="/history" class="form">History</a>
     </div>
     <div class="main-title">
         BẢNG ĐIỀU KHIỂN SMARTHOME
@@ -39,7 +39,7 @@
                                 <p id="time"></p>
                             </div>
                         </div>
-                        <div class="element-block" id ="temp">
+                        <div class="element-block" id="temp" style="background: #FF0033;">
                             <img class="element-icon" src="temprature.png" alt="">
                             <div class="element-text">
                                 <p class="right5px">Nhiệt độ: </p>
@@ -58,7 +58,7 @@
                                 <p>Lux</p>
                             </div>
                         </div>
-                        <div class="element-block" id="hum">
+                        <div class="element-block" id="hum" style="background-color: #33CCFF;">
                             <img class="element-icon" src="drop.png" alt="">
                             <div class="element-text">
                                 <p class="right5px">Độ ẩm: </p>
@@ -74,10 +74,11 @@
                         display: flex;
                         margin-top: 60px;">
                         <img class="element-icon" src="bell.png" alt="">
+                        <input class="checkbox" type="checkbox" name="" onclick="buzzerHome()" id="buzzer">
                         <p style="    
                             margin-top: 47px;
-                            margin-left: 10px;
-                            color: #777f89;">Tự Động Cảnh Báo</p>
+                            margin-left: 25px;
+                            color: #FFFFFF;"> Cảnh Báo</p>
                     </div>
                 </div>
             </div>
@@ -185,7 +186,7 @@
                         color: Highcharts.getOptions().colors[1]
                     }
                 },
-               opposite: true
+                opposite: true
             }, { // Secondary yAxis
                 title: {
                     text: 'Độ ẩm(%)',
@@ -199,7 +200,7 @@
                         color: Highcharts.getOptions().colors[0]
                     }
                 },
-               opposite: true
+                opposite: true
             }, { // Third yAxis
                 title: {
                     text: 'Ánh sáng(lux)',
@@ -232,7 +233,7 @@
             series: [{
                 name: 'Độ ẩm',
                 type: 'spline',
-              //  yAxis: 1,
+                //  yAxis: 1,
                 data: [],
                 tooltip: {
                     valueSuffix: '%'
@@ -300,7 +301,7 @@
 
         setInterval(refreshTime, 1000);
         // ------------------------------
-            
+
 
     </script>
 

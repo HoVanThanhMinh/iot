@@ -36,7 +36,7 @@ var options = {
     username: 'minhhvtptit@gmail.com',
     password: '12345678',
     clientId: 'serverjs2'
-    
+
 }
 
 // initialize the MQTT client
@@ -49,6 +49,7 @@ var topic3 = "television";
 var topic4 = "bedroomLight";
 var topic5 = "bedroomAirConditioner";
 var topic6 = "airVent";
+var topic7 = "buzzer"
 
 var topic_list = ["home/sensors/temperature-humidity"];
 
@@ -102,8 +103,8 @@ client.on('message', function (topic, message, packet) {
     const objData = JSON.parse(message)
     if (topic == topic_list[0]) {
         cnt_check = cnt_check + 1
-        newTemp  = objData.Temperature;
-        newHumi  = objData.Humidity;
+        newTemp = objData.Temperature;
+        newHumi = objData.Humidity;
         newLight = objData.Light;
     }
 
@@ -198,6 +199,17 @@ io.on('connection', function (socket) {
             client.publish(topic6, 'airVentOff');
         }
     })
+    socket.on("buzzerChange", function (data) {
+        if (data == "on") {
+            console.log('Buzzer ON')
+            client.publish(topic7, 'buzzerOn');
+        }
+        else {
+            console.log('Buzzer OFF')
+            client.publish(topic7, 'buzzerOff');
+        }
+    })
+
 
     // Send data to History page(gửi dữ liệu đến trang lịch sử)
     var sql1 = "SELECT * FROM sensors11 ORDER BY ID"

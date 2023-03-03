@@ -23,13 +23,13 @@ body {
     padding-right: 7px;
     text-decoration: none;
     color: #8a7c7c;
-    border: 1px solid rgb(234, 20, 241);
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
 }
 
 .form:hover {
     cursor: pointer;
-    background-color: rgb(105, 105, 218);
+    background-color: #68caee;
     color: white;
     transition: 0.7s;
 }
