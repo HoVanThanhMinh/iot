@@ -23,7 +23,9 @@ app.get('/', function (req, res) {
 app.get('/history', function (req, res) {
     res.render('history.ejs')
 })
-
+app.get('/virtual', function (req, res) {
+    res.render('virtual.ejs')
+})
 server.listen(port, function () {
     console.log('Server listening on port ' + port)
 })
